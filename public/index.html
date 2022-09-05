@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./build/tailwind.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+     integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>inventory</title>
+</head>
+<body class="bg-slate-700">
+    <header class="bg-slate-500 flex justify-center items-center py-2 text-base  font-bold ">
+      <h1 class="text-gray-300">InventoryApp-OOP-with Tailwind css</h1>
+      <span class="w-6 h-6 rounded-full text-slate-200  bg-slate-400 flex justify-center items-center ml-4 text-base border border-slate-200">6</span></header>
+    <div class="flex flex-col h-full w-full container max-w-screen-sm mx-auto">
+        <!--add category-->
+        <div class="my-4 ">
+          <button id="add-category" class="bg-none text-gray-400">add new category?</button>
+          <h2 id="lable-category-form" class="text-slate-400 font-bold text-lg hidden ">Add New Category</h2>
+          <div id="category-form" class="bg-slate-600 w-full p-2 hidden  rounded-md relative ">
+            <label for="category_title" class="text-gray-400 block text-sm mb-2 ">Category Title</label>
+            <input type="text" name="category_title" id="category_title" class="p-2 mb-4 text-xs bg-slate-600 border-gray-400 border rounded-lg text-slate-100" placeholder="tilte...">
+             <label for="category_description" class="text-gray-400 block text-sm mb-2">Category Description</label>
+             <textarea name="category_description" id="category_description" cols="" rows="" class="text-slate-100 p-1 text-xs bg-slate-600 border-gray-400 border rounded-lg mb-4 w-full "></textarea>
+             <span class="bg-green-400 w-5 h-5 rounded-full flex items-center justify-center absolute right-4 bottom-24  cursor-pointer "><i class="fa fa-undo-alt rotate-180 text-slate-100 text-xs" aria-hidden="true" ></i></span>
+             <!--bottoms-->
+            <div class="flex justify-between gap-x-2 mb-4">
+                <button id="category_cancle"  class="w-1/2 text-gray-400 border border-gray-400 rounded-lg py-2">cancle</button>
+                <button  id="category_Add" class="w-1/2 bg-slate-500 rounded-lg text-sm font-bold text-slate-300">Add New Category</button>
+            </div>
+          </div>
+
+        </div>
+    <!--add product-->
+     <div class="mb-4">
+      <h2 class="text-slate-400 font-bold text-lg ">Add New Product</h2>
+      <div class="bg-slate-600 w-full p-2 rounded-md relative ">
+        <!--product title-->
+        <label for="product-title" class="text-gray-400 block text-sm mb-2 ">Product title</label>
+        <input type="text" name="product-title" id="product-title" class="text-slate-100   p-2 mb-4 text-xs bg-transparent border-gray-400 border rounded-lg" placeholder="tilte...">
+        <!--product quantity-->
+        <label for="product-quantity" class="text-gray-400 block text-sm mb-2 ">Quantity</label>
+       <input type="number" name="product-quantity" id="product-quantity" class="text-slate-100  p-2 mb-4 text-xs bg-transparent border-gray-400 border rounded-lg" placeholder="quantity...">
+       <!--product category-->
+       <label for="product-category" class="text-gray-400 block text-sm mb-2 ">Category</label>
+       <select name="product-category" id="product-category" class="text-sm mb-4 text-gray-400 w-full bg-transparent  border-gray-400 border rounded-lg p-2">
+          <option value="" class="bg-slate-500 text-slate-300">select a category</option>
+          <!-- <option value="front" class="bg-slate-500 text-slate-300">front</option>
+          <option value="back" class="bg-slate-500 text-slate-300">backend</option> -->
+       </select>
+        <!--add button-->
+        <button id="product-add-btn" class="bg-slate-500 rounded-lg text-sm font-bold text-slate-300 w-full py-2">Add New product</button>
+      </div>
+
+    </div>
+    <!--added product-->
+    <div class="flex flex-col gap-y-1">
+      <h2 class="text-slate-400 font-bold text-lg ">Added Product</h2>
+      <!--sort section-->
+      <div class="flex justify-between w-full items-center">
+        <label for="sort" class="text-gray-400 block  mb-1 ">sort</label>
+        <select name="sort" id="sort" class="w-1/6 mb-4 text-gray-400 bg-transparent text-sm border-gray-400 border rounded-lg p-2 ">
+          <option value="newest" class="bg-slate-500 text-slate-300 ">newest</option>
+          <option value="latest" class="bg-slate-500 text-slate-300 ">latest</option>
+        </select>
+      </div>
+      <!--search section-->
+      <div class="flex justify-between w-full items-center">
+        <label for="search" class="text-gray-400 block  mb-2 ">serach</label>
+        <input type="text" name="search" id="search" class="text-slate-100 p-2 mb-4 text-xs bg-transparent border-gray-400 border rounded-lg">
+      </div>
+     <!--product list-->
+     <div id="products-list" class="flex flex-col gap-y-2 justify-center">
+      <h2  class="text-slate-400 font-bold text-lg ">product list</h2>
+      <!--product item-->
+      <!-- <div class="flex justify-between">
+        <span class="text-slate-200 text-sm">javascript</span>
+        <div class="flex gap-x-2 items-center mb-8 justify-center">
+          <span class="text-slate-400 text-sm">date</span>
+          <span class="border border-slate-400 text-sm text-slate-400 rounded-2xl px-2 py-0.5">frontend</span>
+          <span class="w-6 h-6 rounded-full text-slate-200 border-slate-200 border  bg-slate-400 flex justify-center items-center  text-sm">6</span>
+          <button class="text-red-400 border border-red-400 px-2 py-0.5 text-sm rounded-2xl">delete</button>
+        </div>
+      </div> -->
+     </div>
+    </div>
+    </div>
+    <script src="../src/js/App.js" type="module"></script>
+</body>
+</html>
